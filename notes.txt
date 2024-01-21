@@ -1,0 +1,3 @@
+- Add side flyout with settings:
+  - toggle score history visibility
+  - toggle delete user (displays x in containers)

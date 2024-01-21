@@ -1,0 +1,16 @@
+body {
+  background-color: #3a3030;
+}
+
+.player-container {
+  border: 1px solid black;
+  width: 200px;
+  height: 600px;
+  float: left;
+  margin-right: 20px;
+  text-align: center;
+}
+
+.player-container.active { border-color: red; }
+
+.hide { display: none; }
