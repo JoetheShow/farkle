@@ -1,8 +1,13 @@
 body {
-  background-color: #3a3030;
+  background-color: #7b6d6d;
+}
+
+h1 {
+  display: inline-block;
 }
 
 .player-container {
+  position: relative;
   border: 1px solid black;
   width: 200px;
   height: 600px;
@@ -11,6 +16,37 @@ body {
   text-align: center;
 }
 
+.player-container .remove-player {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .player-container.active { border-color: red; }
 
 .hide { display: none; }
+
+.flyout {
+  position: absolute;
+  top: 0;
+  right: -200px;
+  width: 200px;
+  height: 600px;
+  background-color: red;
+  border: 1px solid black;
+  z-index: 100;
+  transition: right 1s;
+}
+
+.flyout.open { right: 0; }
+
+.flyout .handle {
+  position: absolute;
+  top: 0;
+  left: -73px;
+  font-weight: bold;
+  color: white;
+  background: black;
+}
+
+.red { color: red; }
