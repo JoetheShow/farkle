@@ -14,8 +14,9 @@ class Farkle {
     this.players = [];
   }
 
-  static play9000Sound() {
-    var audio = new Audio('over-9000.wav');
+  static playSound(filename) {
+    var audio = new Audio(`sounds/${filename}.mp3`);
+
     audio.play();
   }
 

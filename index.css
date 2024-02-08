@@ -29,9 +29,8 @@ h1 {
 .flyout {
   position: absolute;
   top: 0;
-  right: -200px;
-  width: 200px;
-  height: 600px;
+  right: -500px;
+  width: 500px;
   background-color: red;
   border: 1px solid black;
   z-index: 100;
@@ -42,7 +41,7 @@ h1 {
 
 .flyout .handle {
   position: absolute;
-  top: 0;
+  top: 0px;
   left: -73px;
   font-weight: bold;
   color: white;
@@ -50,3 +49,7 @@ h1 {
 }
 
 .red { color: red; }
+
+.scores-image {
+  max-width: 500px;
+}
