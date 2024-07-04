@@ -1,19 +1,54 @@
+@font-face {
+  font-family: "RetroSigned";
+  src: url('fonts/RetroSigned.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  transition: color 1s ease !important;
+  transition: background-color 1s ease !important;
+}
+
 body {
-  background-color: #7b6d6d;
+  width:100%;
+  overflow-x :hidden;
+  background: #35654D !important;
+  /* background-image: url("./images/felt.jpg"); */
+}
+
+.header {
+  text-align: center;
+  background-color: #fff;
 }
 
 h1 {
   display: inline-block;
+  font-size: 100px !important;
+  font-family: "RetroSigned";
+  color: #ba0000;
+  margin-bottom: 0;
 }
 
 .player-container {
   position: relative;
-  border: 1px solid black;
+  display: inline-block;
+  border: 10px solid #2c2a2a;
   width: 200px;
   height: 600px;
-  float: left;
   margin-right: 20px;
   text-align: center;
+  color: #fff;
+  font-weight: bold;
+}
+
+.player-name {
+  border-bottom: 2px solid black;
+  font-size: 22px;
+}
+
+.player-score {
+  font-size: 18px;
 }
 
 .player-container .remove-player {
@@ -22,7 +57,7 @@ h1 {
   right: 0;
 }
 
-.player-container.active { border-color: red; }
+.player-container.active { border-color: #ccad2c; }
 
 .hide { display: none; }
 
@@ -31,7 +66,6 @@ h1 {
   top: 0;
   right: -500px;
   width: 500px;
-  background-color: red;
   border: 1px solid black;
   z-index: 100;
   transition: right 1s;
@@ -42,14 +76,97 @@ h1 {
 .flyout .handle {
   position: absolute;
   top: 0px;
-  left: -73px;
+  left: -113px;
   font-weight: bold;
   color: white;
   background: black;
+  padding: 5px 20px;
+}
+
+.flyout hr {
+  clear: both;
+}
+
+.toggle-container {
+  padding: 10px;
+  width: 50%;
+  display: inline-block;
+  float: left;
+}
+
+.form-switch {
+  display: inline-block !important;
 }
 
 .red { color: red; }
 
 .scores-image {
   max-width: 500px;
+}
+
+button[data-farkle-button="playerFarkle"] {
+  margin-bottom: 20px;
+}
+
+.fancy-button {
+  border-radius: 30px;
+  padding: 15px 0;
+  width: 200px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #fff;
+  background: rgb(2,0,36);
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgb(107, 107, 112) 50%, rgba(0,0,0,1) 100%);
+  position: relative;
+}
+
+.fancy-button:after {
+  content: "";
+  display: block;
+  width: 96%;
+  height: 90%;
+  position: absolute;
+  left: 2%;
+  top: 5%;
+  border-radius: 25px;
+  border: 2px solid #fff;
+}
+
+.start-button {
+  background: rgb(53,101,77);
+  background: linear-gradient(90deg, rgba(53,101,77,1) 0%, rgba(128,152,140,1) 45%, rgba(53,101,77,1) 100%);
+}
+
+.score-submit {
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+input[type="text"], input[type="number"] {
+  font-weight: bold;
+  height: 40px;
+  padding: 0 10px;
+  border-radius: 10px;
+  border-color: #ba0000;
+}
+
+.player-score-input {
+  width: 90%;
+  margin-bottom: 12px;
+}
+
+.players {
+  padding: 20px 0;
+  text-align: center;
+}
+
+.last-score {
+  font-weight: bold;
+  font-size: 18px;
+  color: #ba0000;
 }

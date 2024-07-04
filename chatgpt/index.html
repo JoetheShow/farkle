@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farkle Score Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Farkle Score Tracker</h1>
+        <p>Track your game scores easily and have more fun!</p>
+    </header>
+
+    <main>
+        <section id="player-input">
+            <h2>Enter Player Names</h2>
+            <input type="text" id="player-name" placeholder="Player Name">
+            <button id="add-player">Add Player</button>
+        </section>
+
+        <section id="score-table">
+            <h2>Scores</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Player</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody id="players-list">
+                    <!-- Player rows will be inserted here -->
+                </tbody>
+            </table>
+        </section>
+
+        <section id="actions">
+            <button id="reset-game">Reset Game</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Designed by [Your Name]</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

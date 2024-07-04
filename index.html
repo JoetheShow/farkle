@@ -11,19 +11,21 @@
   </head>
 
   <body>
-    <h1>Farkle Farklers</h1>
+    <div class="header">
+      <h1>Farkle Farklers</h1>
 
-    <div>
-      <button class="hide" data-farkle-button="playerFarkle">Farkle</button>
-      <p class="hide" data-farkle-element="lastScoreWrapper">Last Score: <span data-farkle-element="lastScore">0</span></p>
-    </div>
+      <div>
+        <button class="hide fancy-button" data-farkle-button="playerFarkle">Farkle</button>
+        <p class="hide last-score" data-farkle-element="lastScoreWrapper">Last Score: <span data-farkle-element="lastScore">0</span></p>
+      </div>
 
-    <div data-farkle-element="addPlayersContainer">
-      <label for="player-name">Add Player</label>
-      <input type="text" id="player-name" data-farkle-element="playerName" />
-      <button type="button" data-farkle-button="addPlayer">Add</button>
-      <button type="button" class="hide" data-farkle-button="startGame">Start Game</button>
-      <hr>
+      <div data-farkle-element="addPlayersContainer">
+        <label for="player-name">Add Player</label>
+        <input type="text" id="player-name" data-farkle-element="playerName" />
+        <button type="button" data-farkle-button="addPlayer" class="fancy-button">Add</button>
+        <button type="button" class="hide fancy-button start-button" data-farkle-button="startGame">Start Game</button>
+        <hr>
+      </div>
     </div>
 
     <div class="players" data-farkle-element="playersContainer">
@@ -31,11 +33,11 @@
 
     <div class="player-container hide" id="player-template" data-farkle-element="playerTemplate">
       <button class="remove-player hide" data-farkle-button="removePlayer">x</button>
-      <p data-farkle-element="playerName"></p>
+      <p data-farkle-element="playerName" class="player-name"></p>
       <p class="hide">Points Needed: <span data-farkle-element="pointsNeededToWin"></span></p>
-      <input type="number" min="50" step="50" class="hide" data-farkle-element="turnScore" />
-      <button class="hide" type="button" data-farkle-button="addPlayerScore">Submit</button>
-      <p class="hide"><span data-farkle-element="scoreLabel">Score:</span><span data-farkle-element="playerScore"></span></p>
+      <input type="number" min="50" step="50" class="hide player-score-input" data-farkle-element="turnScore" />
+      <button class="hide fancy-button score-submit" type="button" data-farkle-button="addPlayerScore">Submit</button>
+      <p class="hide player-score"><span data-farkle-element="scoreLabel">Score: </span><span data-farkle-element="playerScore"></span></p>
 
       <div class="hide" data-farkle-element="playerScoreHistory">
         <h3>History</h3>
@@ -44,19 +46,35 @@
     </div>
 
     <div class="flyout">
-      <span class="handle">touch me</span>
+      <span class="handle">Touch Me</span>
 
-      <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="togglePlayerDeletion">
-        <label class="form-check-label" for="togglePlayerDeletion">Delete Users</label>
+      <div class="toggle-container">
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="togglePlayerDeletion">
+          <label class="form-check-label" for="togglePlayerDeletion">Delete Users</label>
+        </div>
+  
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="togglePlayerScoreHistory">
+          <label class="form-check-label" for="togglePlayerScoreHistory">Show Score History</label>
+        </div>
       </div>
 
-      <div class="form-check form-switch">
-        <input class="form-check-input" type="checkbox" role="switch" id="togglePlayerScoreHistory">
-        <label class="form-check-label" for="togglePlayerScoreHistory">Show Score History</label>
+      <div class="toggle-container">
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="toggleSounds" checked>
+          <label class="form-check-label" for="toggleSounds">Play Sounds</label>
+        </div>
+  
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="togglePartyMode">
+          <label class="form-check-label" for="togglePartyMode">PARTY MODE</label>
+        </div>
       </div>
 
-      <img class="scores-image" src="./scores.png" />
+      <hr>
+
+      <img class="scores-image" src="./images/scores.jpg" />
     </div>
 
     <script>

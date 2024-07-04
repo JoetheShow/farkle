@@ -2,11 +2,16 @@ class Farkle {
   static lastScore = 0;
   static gameStarted = false;
   static finalRound = false;
+  static playSounds = false; // make true when done developing
+  static playedFinalRoundSound = false;
+  static partyMode = false;
 
   static initialize() {
     this.buttonFor("addPlayer").click(this.addPlayer);
     this.buttonFor("startGame").click(this.startGame);
     this.buttonFor("playerFarkle").click(function() {
+      Farkle.playSound("farkle");
+      $(`[data-farkle-element="turnScore"]`).val("");
       Farkle.lastScore = 0;
       Farkle.nextTurn();
     });
@@ -15,6 +20,10 @@ class Farkle {
   }
 
   static playSound(filename) {
+    if(!this.playSounds) {
+      return;
+    }
+
     var audio = new Audio(`sounds/${filename}.mp3`);
 
     audio.play();
@@ -41,6 +50,7 @@ class Farkle {
   }
 
   static startGame() {
+    Farkle.playSound("start");
     Farkle.elementFor("addPlayersContainer").addClass("hide");
     $(`[data-farkle-button="playerFarkle"]`).removeClass("hide");
     Farkle.gameStarted = true;
@@ -74,7 +84,10 @@ class Farkle {
         }
       }, Farkle.players[0]);
 
-      alert(`Game over! ${winner.name} wins!`);
+      Farkle.playSound("end");
+      setTimeout(() => {
+        alert(`Game over! ${winner.name} wins!`);
+      }, 2000);
     } else {
       nextPlayer.turn = true;
     }
@@ -155,7 +168,6 @@ class FarklePlayer {
 
     if(this.totalScore() >= 9000 && !this.crossed9000) {
       this.container.find(`[data-farkle-element="playerScore"]`).addClass("red");
-      Farkle.play9000Sound();
       this.crossed9000 = true;
     }
 
@@ -164,6 +176,11 @@ class FarklePlayer {
     }
 
     if(Farkle.finalRound) {
+      if(!Farkle.playedFinalRoundSound) {
+        Farkle.playSound("final_round");
+        Farkle.playedFinalRoundSound = true;
+      }
+
       let highestScore = Farkle.players.reduce((highest, player) => {
         if(player.totalScore() > highest) {
           return player.totalScore();
@@ -261,6 +278,26 @@ $(document).ready(function() {
       $(`[data-farkle-element="playerScoreHistory"]`).removeClass("hide");
     } else {
       $(`[data-farkle-element="playerScoreHistory"]`).addClass("hide");
+    }
+  });
+
+  $("#toggleSounds").change(function() {
+    Farkle.playSounds = this.checked;
+  });
+
+  $("#togglePartyMode").change(function() {
+    if(this.checked) {
+      Farkle.partyMode = setInterval(function() {
+        $("*").each(function() {
+          var randomColor = Math.floor(Math.random()*16777215).toString(16);
+          $(this).css("background-color", `#${randomColor}`);
+  
+          var randomColor = Math.floor(Math.random()*16777215).toString(16);
+          $(this).css("color", `#${randomColor}`);
+        });
+      }, 1000);
+    } else {
+      clearInterval(Farkle.partyMode);
     }
   });
 });
