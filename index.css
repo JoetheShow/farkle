@@ -69,6 +69,7 @@ h1 {
   border: 1px solid black;
   z-index: 100;
   transition: right 1s;
+  background-color: #fff;
 }
 
 .flyout.open { right: 0; }
