@@ -84,10 +84,13 @@ class Farkle {
         }
       }, Farkle.players[0]);
 
-      Farkle.playSound("end");
-      setTimeout(() => {
-        alert(`Game over! ${winner.name} wins!`);
-      }, 2000);
+      setTimeout(function() {
+        Farkle.playSound("end");
+
+        setTimeout(() => {
+          alert(`Game over! ${winner.name} wins!`);
+        }, 2000);
+      }, 1500);
     } else {
       nextPlayer.turn = true;
     }

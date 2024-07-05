@@ -14,7 +14,6 @@ body {
   width:100%;
   overflow-x :hidden;
   background: #35654D !important;
-  /* background-image: url("./images/felt.jpg"); */
 }
 
 .header {
@@ -33,6 +32,7 @@ h1 {
 .player-container {
   position: relative;
   display: inline-block;
+  vertical-align: top;
   border: 10px solid #2c2a2a;
   width: 200px;
   height: 600px;
