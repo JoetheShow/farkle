@@ -261,8 +261,9 @@ class FarklePlayer {
 }
 
 $(document).ready(function() {
-  $(".flyout .handle").click(function() {
+  $(".handle").click(function() {
     $(".flyout").toggleClass("open").toggleClass("hide");
+    $(".handle").toggleClass("open");
   });
 
   $("#togglePlayerDeletion").change(function() {
