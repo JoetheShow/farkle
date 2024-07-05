@@ -2,7 +2,7 @@ class Farkle {
   static lastScore = 0;
   static gameStarted = false;
   static finalRound = false;
-  static playSounds = false; // make true when done developing
+  static playSounds = true;
   static playedFinalRoundSound = false;
   static partyMode = false;
 
@@ -262,7 +262,7 @@ class FarklePlayer {
 
 $(document).ready(function() {
   $(".flyout .handle").click(function() {
-    $(".flyout").toggleClass("open");
+    $(".flyout").toggleClass("open").toggleClass("hide");
   });
 
   $("#togglePlayerDeletion").change(function() {
